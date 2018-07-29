@@ -129,7 +129,7 @@
 
     // event listen
     $('#data_load').on("click", function(){
-        append_data('test');
+        append_data();
     });
 
     var fetch_data = function(){
@@ -146,7 +146,7 @@
 
     fetch_data();
 
-    var append_data = function(data_obj)  {
+    var append_data = function()  {
         // dealing with massive data, using client side lazy loading
         $('#myTable').DataTable( {
             data:           csv_data,
