@@ -127,6 +127,9 @@
     $(document).ready( function () {
     var csv_data;
 
+    $('#myTable').DataTable();
+    $('#myTable_wrapper').css({'margin': 'auto', 'margin-top':'20px'});
+
     // event listen
     $('#data_load').on("click", function(){
         append_data();
@@ -147,8 +150,10 @@
     fetch_data();
 
     var append_data = function()  {
+        var $table = $('#myTable');
+        $table.DataTable().destroy();
         // dealing with massive data, using client side lazy loading
-        $('#myTable').DataTable( {
+        $table.DataTable( {
             data:           csv_data,
             deferRender:    true,
             scrollY:        200,
