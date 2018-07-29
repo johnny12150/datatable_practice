@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  <title>AI台股決策&輿情分析系統法人版</title>
+  <meta name="AI台股決策&輿情分析系統法人版" content="AI台股決策&輿情分析系統法人版">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js" integrity="sha384-4oV5EgaV02iISL2ban6c/RmotsABqE4yZxZLcYMAdG7FAPsyHYAPpywE9PJo+Khy" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+  <!-- add datatable js cdn -->
+  <link rel="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+  <!-- jquery csv cdn -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.9/jquery.csv.js"></script>
+  
+  
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <a class="navbar-brand" href="#">AI台股決策&輿情分析系統法人版</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">首頁</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            數據
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">財報數據</a>
+            <a class="dropdown-item" href="#">價格行情</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            決策系統
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">精選策略</a>
+            <a class="dropdown-item" href="#">基本面</a>
+            <a class="dropdown-item" href="#">技術面</a>
+            <a class="dropdown-item" href="#">籌碼面</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            輿情分析
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">社群分析</a>
+            <a class="dropdown-item" href="#">訊息流</a>
+            <a class="dropdown-item" href="#">事件擷取</a>
+            <a class="dropdown-item" href="#">產業比較</a>
+            <a class="dropdown-item" href="#">熱門議題</a>
+            <a class="dropdown-item" href="#">關連詞</a>
+          </div>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">研究報告</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">教學說明</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container" id="monthly-revenue">
+    <div class="where-am-i">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">首頁</a></li>
+          <li class="breadcrumb-item"><a href="#">數據：財報數據</a></li>
+          <li class="breadcrumb-item"><a href="#">月：月營收</a></li>
+        </ol>
+      </nav>
+    </div>
+    <div class="row">
+      <div class="col-6 col-md-3 text-center">
+        <button type="button" class="btn btn-secondary" id="data_load" >個股總覽</button>
+      </div>
+      <div class="col-6 col-md-3 text-center">
+        <button type="button" class="btn btn-secondary">多股比較</button>
+      </div>
+      <div class="col-6 col-md-3 text-center">
+        <button type="button" class="btn btn-secondary">營收動態</button>
+      </div>
+      <div class="col-6 col-md-3 text-center">
+       <button type="button" class="btn btn-secondary">資料下載</button>
+      </div>
+    </div>
+    <div class="row">
+      <table id="myTable">
+        <thead>
+          <tr>
+              <th>股票代號</th>
+              <th>股票名稱</th>
+              <th>年月日</th>
+              <th>單月合併營收(千)</th>
+              <th>單月合併營收年成長(%)</th>
+              <th>單月合併營收月變動(%)</th>
+              <th>累計合併營收(千)</th>
+          </tr>
+      </thead>
+
+      <tbody></tbody>
+      </table>
+    </div>
+    
+  </div>
+
+  <script>
+    $(document).ready( function () {
+    var csv_data;
+
+    // event listen
+    $('#data_load').on("click", function(){
+        append_data('test');
+    });
+
+    var fetch_data = function(){
+        // AJAX in the data file
+    $.ajax({
+        type: "GET",
+        url: "./月營收.csv",
+        dataType: "text",
+        success: function(data) {
+            csv_data = $.csv.toArrays(data);
+        }
+        });
+    };
+
+    fetch_data();
+
+    var append_data = function(data_obj)  {
+        // dealing with massive data, using client side lazy loading
+        $('#myTable').DataTable( {
+            data:           csv_data,
+            deferRender:    true,
+            scrollY:        200,
+            scrollCollapse: true,
+            scroller:       true
+        } );
+
+        $('#myTable_wrapper').css({'margin': 'auto', 'margin-top':'20px'});
+
+    }
+   
+  } );
+  </script>
+</body>
+</html>
