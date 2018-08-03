@@ -4,5 +4,6 @@
 ![Alt text](doc/client-side-loading.PNG)
 
 * `lazy-loading-server.html` has been facing a loading timeout issue.
+> Will require a server side application to deal with responses.
 
 ![Alt text](doc/server-side-lazy-loading.PNG)
